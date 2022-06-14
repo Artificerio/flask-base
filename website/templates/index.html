@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello!
+    {% if name %}
+        <h1>Hello  {{name}} !</h1>
+    {% else %}
+        <h1>Not hello !</h1>
+    {% endif %}
+    {% for row in data %}
+        <h1>{{row['id']}} {{row['name']}} </h1>
+    {% endfor %}
+    <a href="/click">click me</a>
+</body>
+</html>
