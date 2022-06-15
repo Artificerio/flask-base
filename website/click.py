@@ -20,6 +20,11 @@ cursor.execute('SELECT * FROM pet WHERE age >= 5')
 
 #data
 data = cursor.fetchall()
+
+#get all table column names
+cursor.execute("select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'pet' ")
+heads = cursor.fetchall()
+
 headings = ('id', 'name', 'age', 'owner_id')
 
 
@@ -28,7 +33,7 @@ def index_click():
     if request.method == 'POST':
         password = request.form.get('pswd')
         print(password)
-    return render_template('click.html', data=data, headings=headings)
+    return render_template('click.html', data=data, headings=heads)
 
 @click.route('/upload', methods=['POST', 'GET'])
 def upload():
